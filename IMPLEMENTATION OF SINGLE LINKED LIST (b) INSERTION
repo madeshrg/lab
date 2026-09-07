@@ -1,0 +1,94 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOePyIV9u3+e8zNrP70Pir9",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/madeshrg/lab/blob/main/IMPLEMENTATION%20OF%20SINGLE%20LINKED%20LIST%20(b)%20INSERTION\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Node:\n",
+        "    def __init__(self, dataval=None):\n",
+        "        self.dataval = dataval\n",
+        "        self.nextval = None\n",
+        "\n",
+        "\n",
+        "class SLinkedList:\n",
+        "    def __init__(self):\n",
+        "        self.headval = None\n",
+        "\n",
+        "    def listprint(self):\n",
+        "        printval = self.headval\n",
+        "\n",
+        "        while printval is not None:\n",
+        "            print(printval.dataval)\n",
+        "            printval = printval.nextval\n",
+        "\n",
+        "    def AtBegining(self, newdata):\n",
+        "        NewNode = Node(newdata)\n",
+        "        NewNode.nextval = self.headval\n",
+        "        self.headval = NewNode\n",
+        "\n",
+        "\n",
+        "# Create linked list\n",
+        "list = SLinkedList()\n",
+        "\n",
+        "list.headval = Node(\"Mon\")\n",
+        "\n",
+        "e2 = Node(\"Tue\")\n",
+        "e3 = Node(\"Wed\")\n",
+        "\n",
+        "list.headval.nextval = e2\n",
+        "e2.nextval = e3\n",
+        "\n",
+        "# Add Sun at the beginning\n",
+        "list.AtBegining(\"Sun\")\n",
+        "\n",
+        "# Display the linked list\n",
+        "list.listprint()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "1RGVvZmwl_YO",
+        "outputId": "dba2f71f-8589-4c93-cc00-15115b81dae7"
+      },
+      "execution_count": 28,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Sun\n",
+            "Mon\n",
+            "Tue\n",
+            "Wed\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
